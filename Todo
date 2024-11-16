@@ -1,0 +1,6 @@
+I need to make it allow for frustrums too 
+Maybe model it so that one can use different methods for generating shapes
+Maybe make so someone can specify different scales, like the axis can be made to be distorted.
+Maybe help with vertices and UV coords and normals (options for these)
+Maybe model matrices
+Maybe model requests to allow for these
