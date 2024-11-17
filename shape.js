@@ -4,8 +4,15 @@ import { radians, vec3 } from "mv-redux";
 export class Shape{
 
     static Colors = { black: vec3(0.), white: vec3(1.) }
+    static CUBE_INDICES = [
+        0, 1, 2, 2, 3, 0, // Front
+        4, 5, 6, 6, 7, 4, // Back
+        1, 2, 5, 5, 6, 2, // Right
+        0, 3, 4, 4, 7, 3, // Left
+        0, 1, 4, 4, 5, 1, // Top
+        2, 3, 6, 6, 7, 3,  // Bottom
+    ];
 
-    //- Maybe move to visualObject 
     // Give random vertex color
     static rVec() {
         function getRandom() {
@@ -25,13 +32,13 @@ export class Shape{
 
     //- Maybe replace with Array from
     static getIndices(startIndex, count){
-
-        let indices = []
-        for (let i = 0; i < count; i++){
-            indices.push(i + startIndex);
-        }
-        return indices;
+        return Array.from({ length: count }, (_, i) => i + startIndex);
     }
+
+    static ensureColors(colors, count) {
+        return Array.from({ length: count }, (_, i) => colors[i] || this.rVec());
+    }
+    
 
     /** Shape methods
      *  
@@ -58,28 +65,7 @@ export class Shape{
         ];
 
         let indices = []; //? quicker way to do this?
-        // Indexer  // Im just using a funky way to redefine what I did before
-        let  [ a, b, c, d, e, f, g, h ] = this.getIndices(lastIndex, 8); //{ 0 + lastIndex, 1 + lastIndex, 2 + lastIndex, 3 + lastIndex, 4 + lastIndex, 5 + lastIndex, 6 + lastIndex, 7 + lastIndex}
-
-        ///////////////////////////////////
-        // Front and back for each
-        indices.push(a, b, c);
-        indices.push(c, d, a);
-
-        indices.push(e, f, g,);
-        indices.push(g, h, e);
-
-        indices.push(b, c, f);
-        indices.push(f, g, c);
-
-        indices.push(a, d, e);
-        indices.push(e, h, d);
-
-        indices.push(a, b, e);
-        indices.push(e, f, b);
-
-        indices.push(c, d, g);
-        indices.push(g, h, d);
+        indices.push(...Shape.CUBE_INDICES.map(index => index + lastIndex));
         
         // Packaging
         let vertexData = [];
