@@ -4,3 +4,64 @@ Maybe make so someone can specify different scales, like the axis can be made to
 Maybe help with vertices and UV coords and normals (options for these)
 Maybe model matrices
 Maybe model requests to allow for these
+
+
+Glance TODO
+About
+Make it easier to work through the textbook examples and explore WebGL concepts interactively.
+Make it easier to explore grphics, 
+Provide intuitive functions for my projects
+
+Core
+Scene Abstraction: Simple functions to set up scenes (e.g., camera, projection, model-view).
+Shader Management: Easy-to-use wrapper for compiling and linking shaders.
+Buffer Handling: Simplified functions for sending geometry to GPU.
+Animation Loop: Core update/render loop support, possibly with a scheduling API.
+
+Utilities
+Matrix Utilities: Reusable matrix stack or linear algebra helpers.
+Texture Utilities: Abstractions for loading and applying textures.
+Controller Utilities?
+DOM Utilities?
+
+
+- Sampling - allow quick and easy sampling of objects
+- Input system (JS) Allow for quick and easy dom manipulation, inserting input elements
+- Control system for listening to keyboard and mouse events
+- Matrix functions in rust
+- math functions in cpp
+- compilation with WASM
+- Unit tests
+- Engine
+- Shader resource locator
+- Metaprogramming with shaders
+- JS multithreading with webworkers.
+
+- Make documentation site
+
+
+
+from MV Redux
+
+Support more varied arguments for matrix constructors
+Would like to be able to pass a combination of numbers and smaller vectors in arbitrary order, like using vec3s to pass the top three values of a column.
+
+Support arrays of operands in operator functions
+add([ v1, v2, v3 ]) → $v_1 + v_2 + v_3$
+mult([ T, R, S ]) → $T \times R \times S$.
+For mult, it would be particularly nice to accept vectors as its last argument.
+
+Helpers for easily creating <input> elements on the page
+
+Helpers for listening to keyboard and mouse events
+
+Choose (and document) a consistent set of conventions
+Left-hand or right-hand coordinate system? Did not bother to consider which one the old library used when first implementing.
+Column- or row-major? Turns out the old library used row-major, so this library is not actually currently backwards compatible as advertised. If this is going to be different, it should be explicitly documented.
+
+(maybe) Pick an actual name for the library
+Once helper functions for HTML inputs and KB + mouse listeners, this library will have more than just "MV" in it.
+
+(maybe) Reorganize and switch to a bundler
+Switch to a more modular one-file-per-function approach.
+Bundle into folder-based modules.

@@ -1,0 +1,30 @@
+{
+  "name": "shape-class",
+  "version": "1.0.0",
+  "description": "GLance means GL advanced",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts", 
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev-build": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Egbaiyelo/Shape-class.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Egbaiyelo/Shape-class/issues"
+  },
+  "homepage": "https://github.com/Egbaiyelo/Shape-class#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
